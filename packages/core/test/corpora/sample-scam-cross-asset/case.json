@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "id": "sample-scam-cross-asset",
+  "title": "Synthetic: funds from a scam address continue in a second asset",
+  "scenario": "risk_propagation",
+  "chain": "ethereum",
+  "direction": "backward",
+  "seeds": [
+    {
+      "id": "s1",
+      "kind": "tx",
+      "value": "0x3333333333333333333333333333333333333333333333333333333333333333"
+    }
+  ],
+  "expected": {
+    "edges": [
+      {
+        "from": "0x00000000000000000000000000000000000000d4",
+        "to": "0x00000000000000000000000000000000000000a1",
+        "txHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "assetId": "ethereum:native",
+        "amount": 12.5
+      },
+      {
+        "from": "0x00000000000000000000000000000000000000e5",
+        "to": "0x00000000000000000000000000000000000000d4",
+        "txHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "assetId": "ethereum:native",
+        "amount": 12.5
+      }
+    ],
+    "entities": [
+      {
+        "id": "scam-sample",
+        "category": "scam",
+        "addresses": [
+          { "chain": "ethereum", "address": "0x00000000000000000000000000000000000000d4" }
+        ]
+      }
+    ],
+    "riskFactors": ["scam_direct"]
+  },
+  "annotations": {
+    "reviewedBy": "sample",
+    "reviewedAt": "2026-11-27",
+    "sources": [
+      {
+        "kind": "internal_review",
+        "url": null,
+        "note": "Synthetic sample of the format; replace it with the first reviewed case."
+      }
+    ]
+  }
+}
