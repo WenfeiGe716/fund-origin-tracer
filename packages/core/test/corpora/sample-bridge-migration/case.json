@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "id": "sample-bridge-migration",
+  "title": "Synthetic: a native-coin transfer leaves a wallet through a bridge",
+  "scenario": "asset_migration",
+  "chain": "ethereum",
+  "direction": "forward",
+  "seeds": [
+    {
+      "id": "s1",
+      "kind": "tx",
+      "value": "0x1111111111111111111111111111111111111111111111111111111111111111"
+    }
+  ],
+  "expected": {
+    "edges": [
+      {
+        "from": "0x00000000000000000000000000000000000000a1",
+        "to": "0x00000000000000000000000000000000000000b2",
+        "txHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "assetId": "ethereum:native",
+        "amount": 1.5
+      }
+    ],
+    "entities": [
+      {
+        "id": "bridge-operator",
+        "category": "bridge",
+        "addresses": [
+          { "chain": "ethereum", "address": "0x00000000000000000000000000000000000000b2" }
+        ]
+      }
+    ],
+    "riskFactors": []
+  },
+  "annotations": {
+    "reviewedBy": "sample",
+    "reviewedAt": "2026-11-27",
+    "sources": [
+      {
+        "kind": "internal_review",
+        "url": null,
+        "note": "Synthetic sample of the format; replace it with the first reviewed case."
+      }
+    ]
+  }
+}
